@@ -9,6 +9,12 @@
 body {
   box-sizing: border-box;
 }
+.js-loading *,
+.js-loading *::before,
+.js-loading *::after {
+  animation-play-state: paused;
+  display: none;
+}
 
 .main {
   min-height: 100vh;

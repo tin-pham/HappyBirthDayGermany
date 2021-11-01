@@ -1,5 +1,12 @@
 const giftBox = document.querySelector('.gift-box');
 const modals = document.querySelector('.modals');
+const body = document.body;
+
+window.addEventListener('load', showAnimation);
+
+function showAnimation() {
+  body.classList.remove('js-loading');
+}
 
 giftBox.addEventListener('click', showModals);
 
