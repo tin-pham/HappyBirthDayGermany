@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.main {
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #3d405b;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  gap: 1em;
+  align-items: center;
+}
+.background-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 14vw, 5rem);
+  text-transform: uppercase;
+  color: transparent;
+  text-align: center;
+  -webkit-text-stroke: 1px white;
+  background: url(./back.png);
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  animation: slide 20s linear infinite;
+}
+
+.typing-text {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: calc(2rem + 1vw);
+  color: white;
+
+  position: relative;
+}
+
+.typing-text span {
+  color: #e07a5f;
+}
+
+.typing-text::before {
+  position: absolute;
+  content: '';
+  border-left: 2px solid #e07a5f;
+  background-color: #3d405b;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: typing 1.5s steps(12) forwards;
+}
+
+.gift-box {
+  width: 100px;
+  animation: bubble 1.2s ease-out infinite;
+  cursor: pointer;
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+  }
+}
+@keyframes slide {
+  100% {
+    background-position: 2000px 0;
+  }
+}
+
+@keyframes bubble {
+  45% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Modals */
+
+.modals {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modals.hidden {
+  display: none;
+}
+.modals.show {
+  display: flex;
+}
+
+.modal {
+  font-family: 'Dancing Script', cursive;
+  position: relative;
+  color: white;
+  width: 500px;
+  opacity: 0;
+  transform: translateY(-2rem);
+  animation: fade-in 1.5s cubic-bezier(0, 0.5, 1, 0.5) forwards;
+  padding: 1em;
+}
+
+.modal__heading {
+  font-size: calc(1.75rem + 0.5vw);
+}
+
+.modal p {
+  font-size: calc(1.25rem + 0.5vw);
+}
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
